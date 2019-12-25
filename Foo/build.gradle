@@ -11,6 +11,17 @@ repositories {
     mavenCentral()
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': "Foo"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
 dependencies {
+    implementation project(":Bar")
     testCompile group: 'junit', name: 'junit', version: '4.12'
 }
