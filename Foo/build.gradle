@@ -5,11 +5,6 @@ plugins {
 }
 mainClassName = 'Foo'
 
-test {
-    useJUnitPlatform()
-    maxHeapSize = '1G'
-}
-
 sourceCompatibility = 1.8
 
 group 'io.github.reversor'
@@ -21,5 +16,4 @@ repositories {
 
 dependencies {
     implementation project(":Bar")
-    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.5.2'
 }
